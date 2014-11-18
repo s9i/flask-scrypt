@@ -134,7 +134,7 @@ def safe_str_cmp(a, b):
     From: https://github.com/mitsuhiko/werkzeug/blob/master/werkzeug/security.py
     """
     if _builtin_safe_str_cmp is not None:
-        return _builtin_safe_str_cmp(a, b)
+        return _builtin_safe_str_cmp(bytes(a), bytes(b))
     elif len(a) != len(b):
         return False
     rv = 0
